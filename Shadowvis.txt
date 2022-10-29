@@ -28,6 +28,14 @@ if game:GetService("ReplicatedStorage"):WaitForChild("UnloadedEnemies") then
     end 
 end
 
+plr.OnTeleport:Connect(function(state)
+	if state == Enum.TeleportState.Started then
+		if queueteleport then
+			queueteleport("loadstring(game:HttpGet('https://raw.githubusercontent.com/NotDev69/Shadow-Vis/main/Shadowvis.txt'))()")
+		end
+	end
+end)
+
 plr.CharacterAdded:Connect(function(character)
     cha = character 
     hrp = cha:WaitForChild("HumanoidRootPart")
